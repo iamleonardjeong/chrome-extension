@@ -15,24 +15,46 @@ body {
   padding: 20px;
 }
 
-#change-color {
-  width: 320px;
+/* .change-box {
+  display: flex;
+  justify-content: flex-start;
+  width: 420px;
+  position: absolute;
+  right: 8px;
+  bottom: 48px;
+} */
+.change-color-form {
+  width: 210px;
   display: flex;
   flex-direction: column;
+  align-self: flex-end;
+
   position: absolute;
   right: 8px;
   bottom: 48px;
 }
+
+.color-chip {
+  width: 210px;
+  height: 400px;
+  background: black;
+  color: white;
+  /* border: 1px solid black; */
+  border-radius: 6px;
+}
+
 #change-color strong {
   height: 32px;
   display: flex;
   align-items: center;
 }
-#change-color div {
+/* #change-color div {
+  display: flex;
+} */
+#change-color-buttons {
   display: flex;
 }
-#change-color div input,
-button {
+#change-color div button {
   flex: 1;
   height: 32px;
   border: none;
@@ -40,27 +62,37 @@ button {
   background: black;
   color: white;
   cursor: pointer;
+  border-radius: 6px;
 }
 #color {
+  width: 100%;
   border: none;
-  border: 1px solid gray;
+  border: 1px solid black;
   background: none;
   outline: none;
   height: 32px;
   margin-bottom: 8px;
   padding: 0;
   padding-left: 8px;
+  color: white;
+  background-color: black;
+  border-radius: 6px;
 }
+#color::placeholder {
+  color: white;
+}
+/* #color:: */
 
 .buttons {
   position: absolute;
   right: 8px;
   bottom: 8px;
-  width: 320px;
+  width: 420px;
   display: flex;
   justify-content: space-around;
 }
 .buttons button {
+  flex: 1;
   background: black;
   color: white;
   border: none;
@@ -68,4 +100,11 @@ button {
   height: 32px;
   padding: 0 12px;
   cursor: pointer;
+  border-radius: 6px;
+}
+
+.edit {
+  position: absolute;
+  right: 20px;
+  /* top: 0; */
 }
