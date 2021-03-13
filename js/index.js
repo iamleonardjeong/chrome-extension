@@ -1,12 +1,32 @@
 let container = document.getElementById('container');
+let compare = document.getElementById('compare');
 
 // browser right - bottom elements
 // text color, bg color, clear
+let componentBtn = document.getElementById('component');
 let textColor = document.getElementById('text-color');
 let bgColor = document.getElementById('bg-color');
 let clear = document.getElementById('clear');
 
 // events
+componentBtn.addEventListener('click', () => {
+  // text color, bg color 탭이 열려있다면 삭제
+  if (document.getElementsByClassName('change-color-form').length === 1) {
+    document.getElementsByClassName('change-color-form')[0].remove();
+  }
+
+  if (document.getElementsByClassName('component-list').length < 1) {
+    let list = document.createElement('div');
+    list.className = 'component-list';
+    list.innerHTML = window.template.componentList();
+    document.body.appendChild(list);
+
+    let cancelBtn = document.querySelector('.lists-cancel');
+    cancelBtn.addEventListener('click', () => {
+      list.remove();
+    });
+  }
+});
 textColor.addEventListener('click', changeColor(textColor));
 bgColor.addEventListener('click', changeColor(bgColor));
 clear.addEventListener('click', () => {
@@ -18,12 +38,20 @@ clear.addEventListener('click', () => {
 // function: change color
 function changeColor(place) {
   place.addEventListener('click', () => {
-    if (document.getElementsByClassName('change-box').length < 1) {
+    // 다른 카테고리의 change color가 열려있다면 삭제
+    if (document.querySelector('.change-color-form')) {
+      document.querySelector('.change-color-form').remove();
+    }
+
+    if (document.getElementsByClassName('change-color-form').length < 1) {
+      if (document.getElementsByClassName('component-list').length === 1) {
+        document.getElementsByClassName('component-list')[0].remove();
+      }
       let formEl = document.createElement('div');
       formEl.className = 'change-color-form';
       formEl.innerHTML = `
         <form id="change-color">
-          <strong>${place.innerText} Change</strong>
+          <h3>${place.innerText} Change</h3>
           <input id="color" type="text" placeholder="Color Name" />
           <div id="change-color-buttons">
             <button type="submit">Change</button>
@@ -62,18 +90,4 @@ function changeColor(place) {
   });
 }
 
-// let h1 = document.querySelector('h1');
-// h1.addEventListener('mouseover', () => {
-//   h1.childNodes[1].style.display = 'inline';
-// });
-// h1.addEventListener('mouseleave', () => {
-//   h1.childNodes[1].style.display = 'none';
-// });
-
-// let ok = document.querySelector('#ok');
-// ok.addEventListener('mouseover', () => {
-//   ok.childNodes[1].style.display = 'inline';
-// });
-// ok.addEventListener('mouseleave', () => {
-//   ok.childNodes[1].style.display = 'none';
-// });
+window.template.componentList();
