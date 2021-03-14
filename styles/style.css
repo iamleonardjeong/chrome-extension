@@ -5,17 +5,16 @@
 
 body {
   display: flex;
-
-  height: 100vh;
+  /* overflow: hidden; */
+  /* height: 100vh; */
 }
 
 #container {
-  /* width: 100%;
-  height: 100%; */
   flex: 1;
-
-  /* change later */
   padding: 20px;
+  min-height: 100vh;
+  /* overflow: hidden;o */
+  overflow-wrap: break-word;
 }
 #compare {
   flex: 1;
@@ -37,7 +36,7 @@ body {
   flex-direction: column;
   align-self: flex-end;
 
-  position: absolute;
+  position: fixed;
   right: 8px;
   bottom: 48px;
 }
@@ -92,7 +91,7 @@ body {
 /* #color:: */
 
 .buttons {
-  position: absolute;
+  position: fixed;
   right: 8px;
   bottom: 8px;
   width: 420px;
@@ -126,7 +125,7 @@ body {
 .lists {
   width: 420px;
   max-height: 60%;
-  position: absolute;
+  position: fixed;
   right: 8px;
   bottom: 88px;
   background: black;
@@ -145,7 +144,7 @@ body {
   padding: 0 12px;
   cursor: pointer;
   border-radius: 6px;
-  position: absolute;
+  position: fixed;
   bottom: 48px;
   right: 8px;
   width: 420px;
@@ -153,10 +152,10 @@ body {
 
 .list {
   display: flex;
-  cursor: pointer;
 }
 
 .list-thumbnail {
+  /* margin-left: 20px; */
   width: 80px;
   height: 80px;
   display: flex;
@@ -171,4 +170,190 @@ body {
   height: 80px;
   padding: 8px 20px;
   overflow: scroll;
+  cursor: pointer;
+}
+
+.component-wrap {
+  box-sizing: content-box;
+
+  max-width: calc(100vw - 40px);
+  padding: 12px 0;
+  /* overflow: hidden; */
+  /* overflow-wrap: break-word; */
+  /* padding: 12px 0; */
+}
+
+.component-edit-btn {
+  /* float: left; */
+  /* z-index: 1; */
+  /* position: relative;
+  left: calc(100% - 39px);
+  opacity: 0; */
+
+  background: black;
+  color: white;
+  border: none;
+  outline: none;
+  height: 32px;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0;
+  position: absolute;
+  right: 20px;
+  width: 52px;
+}
+.component-edit-btn:hover {
+  /* float: left; */
+  opacity: 1;
+}
+.component-delete-btn {
+  background: black;
+  color: white;
+  border: none;
+  outline: none;
+  height: 32px;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0;
+  position: absolute;
+  right: 72px;
+}
+.component-delete-btn:hover {
+  opacity: 1;
+}
+
+#editInput {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#edit-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 420px;
+  padding: 20px;
+  padding-bottom: 10px;
+  background: black;
+  color: white;
+  border-radius: 12px;
+}
+#editInput form h3 {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+#editInput form label {
+  display: block;
+}
+
+#edit-buttons {
+  display: flex;
+}
+#edit-buttons button {
+  flex: 1;
+  background: black;
+  color: white;
+  border: none;
+  outline: none;
+  height: 32px;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+#edit-form-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-height: 560px;
+  overflow: scroll;
+}
+
+#edit-font-size {
+  width: 100%;
+  border: none;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  min-height: 32px;
+
+  margin-bottom: 8px;
+  padding: 0;
+  padding-left: 8px;
+  color: black;
+  background-color: white;
+  border-radius: 6px;
+}
+#edit-font-size::placeholder {
+  color: black;
+}
+
+#edit-font-color {
+  width: 100%;
+  border: none;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  min-height: 32px;
+  margin-bottom: 8px;
+  padding: 0;
+  padding-left: 8px;
+  color: black;
+  background-color: white;
+  border-radius: 6px;
+}
+#edit-font-color::placeholder {
+  color: black;
+}
+#edit-line-height {
+  width: 100%;
+  border: none;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  min-height: 32px;
+  margin-bottom: 8px;
+  padding: 0;
+  padding-left: 8px;
+  color: black;
+  background-color: white;
+  border-radius: 6px;
+}
+#edit-line-height::placeholder {
+  color: black;
+}
+
+#edit-text {
+  resize: none;
+  height: 200px;
+  width: 100%;
+  border: none;
+  border: 1px solid black;
+  background: none;
+  outline: none;
+  margin-bottom: 8px;
+  padding: 8px;
+  color: black;
+  background-color: white;
+  border-radius: 6px;
+}
+#edit-text::placeholder {
+  color: black;
+}
+
+.edit-element {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
 }

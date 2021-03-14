@@ -21,6 +21,9 @@ componentBtn.addEventListener('click', () => {
     list.innerHTML = window.template.componentList();
     document.body.appendChild(list);
 
+    let listItem = document.querySelectorAll('.list');
+    window.template.addComponent(listItem);
+
     let cancelBtn = document.querySelector('.lists-cancel');
     cancelBtn.addEventListener('click', () => {
       list.remove();
@@ -33,6 +36,8 @@ clear.addEventListener('click', () => {
   while (container.firstChild) {
     container.firstChild.remove();
   }
+  container.style.color = 'black';
+  container.style.background = 'white';
 });
 
 // function: change color
@@ -56,7 +61,7 @@ function changeColor(place) {
           <div id="change-color-buttons">
             <button type="submit">Change</button>
             <button id="change-color-cancel" type="reset">Cancel</button>
-          <div>
+          </div>
         </form>
       `;
 
@@ -90,4 +95,4 @@ function changeColor(place) {
   });
 }
 
-window.template.componentList();
+// window.template.componentList();
