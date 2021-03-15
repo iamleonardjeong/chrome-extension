@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "dete",
   "version": "1.0",
-  "description": "Design Testing",
+  "description": "브라우저에서 디자인 테스트 : design test in browser",
   "action": {
     "default_icon": {
       "16": "images/icon16.png",

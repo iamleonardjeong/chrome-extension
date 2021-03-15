@@ -117,6 +117,10 @@ window.template = {
     });
 
     window.addEventListener('keydown', (e) => {
+      if (!document.querySelector('#editInput')) {
+        return;
+      }
+
       if (e.key === 'Escape') {
         editInput.remove();
       }
